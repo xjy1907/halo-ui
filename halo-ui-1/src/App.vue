@@ -4,7 +4,9 @@ import Xu from './components/Xu.vue'
 
 <template>
   <div id="app">
-    <Xu/>
+    123
+    <router-link to="/xu"></router-link>
+    <router-view></router-view>
   </div>
   
 </template>
