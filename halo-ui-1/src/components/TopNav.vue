@@ -15,11 +15,10 @@ import { inject, Ref } from 'vue';
 export default {
     setup() {
         const asideVisible = inject<Ref<boolean>>('asideVisible');
-        console.log(asideVisible?.value);
+
         const toggleAside = () => {
-            console.log(1)
             asideVisible!.value = !asideVisible?.value
-            console.log(`切换后的value：${asideVisible?.value}`)
+            
         }
         return {
             toggleAside
