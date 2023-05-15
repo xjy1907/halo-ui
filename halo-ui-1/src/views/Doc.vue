@@ -1,7 +1,7 @@
 <template>
     
-    <div class="doc">
-        <TopNav/>
+    <div class="layout">
+        <TopNav class="nav"/>
     <div class="content">
         <aside v-if="asideVisible">
             <h2>组件列表</h2>
@@ -39,7 +39,33 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" scoped>  
+.content {
+    display: flex;
+    > aside 
+    {flex-shrink: 0;}
+    > main {
+        flex-grow: 1;
+       padding: 16px;
+       background-color: lightgreen;
+    }
+}
+.layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  > .nav {
+    flex-shrink: 0;
+  }
+  > .content {
+    flex-grow: 1;
+    padding-top: 60px;
+    padding-left: 156px;
+    @media (max-width: 500px) {
+      padding-left: 0; 
+    }
+  }
+}
 aside {
     background-color: lightblue;
     width: 150px;
@@ -48,6 +74,7 @@ aside {
     top:0;
     left: 0;
     padding-top: 70px;
+    height:100%;
     > h2{
         margin-bottom: 4px;
     }
@@ -57,5 +84,7 @@ aside {
         }
     }
 }
-
+main {
+  overflow: auto;
+}
 </style>
