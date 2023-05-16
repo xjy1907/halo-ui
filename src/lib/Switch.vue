@@ -1,6 +1,6 @@
 <template>
     <div>
-      <button @click="toggle" :class="{checked}">
+      <button @click="toggle" :class="{checked:checked}">
         <span></span>
       </button>
     </div>
@@ -10,15 +10,16 @@
 import {ref} from 'vue'
 
 export default {
-  setup() {
-    const checked = ref(false)
-
+  props: {
+    checked:Boolean
+  },
+  setup(props,context) {
+    // const props = defineProps({checked:Boolean})
     const toggle = () => {    
-      checked.value = !checked.value
+      context.emit('update:checked',!props.checked)
     }
     return {
       toggle,
-      checked
     }
   }
 }
@@ -34,8 +35,7 @@ button {
   border: none;
   border-radius: $buttonHeight/2;
   position: relative;
-}
-span {
+  > span {
   background: white;
   height: $circleHeight;
   width: $circleHeight;
@@ -46,6 +46,8 @@ span {
   transition: left 250ms;
 
 }
+}
+
 button.checked{
   background: #0066FF;
 }
