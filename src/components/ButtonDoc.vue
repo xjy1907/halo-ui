@@ -1,6 +1,9 @@
     <template>
       <div>
-        <Button @click="onClick">我是按钮1</Button>
+        <Button @click="onClick"
+                @focus="onClick"
+                @mouseover="onClick"
+                size="small">我是按钮1</Button>
       </div>
     </template>
     
