@@ -1,6 +1,6 @@
 <template>
     <div>
-      <button @click="toggle" :class="{checked:checked}">
+      <button class="halo-switch" @click="toggle" :class="{checked:checked}">
         <span></span>
       </button>
     </div>
@@ -25,10 +25,10 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" >
 $buttonHeight: 26px;
 $circleHeight: $buttonHeight - 4px;
-button {
+.halo-switch {
   background: #969696;
   width: $buttonHeight*2;
   height: $buttonHeight;

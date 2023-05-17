@@ -1,7 +1,10 @@
+import './lib/halo.scss'
+import './index.scss'
+
 import { createApp } from 'vue'
 import {router} from './router'
 
-import './index.scss'
+
 import App from './App.vue'
 
 
