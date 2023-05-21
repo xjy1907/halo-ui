@@ -1,6 +1,8 @@
 <template>
       <button class="halo-button"
-            :class="classes" :disabled="disabled"><slot/></button>
+            :class="classes" :disabled="disabled">
+            <span v-if="loading" class="halo-loadingIndicator"></span>
+            <slot/></button>
 </template>
 
 <script lang='ts'>
@@ -23,6 +25,10 @@ props: {
     disabled: {
       type: Boolean,
       default: false,
+    },
+    loading: {
+      type: Boolean,
+      default: false
     }
 },
 setup(props) {
@@ -162,6 +168,21 @@ $grey: grey;
       color: $grey;
     }
   }
+  > .halo-loadingIndicator{
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+    margin-right: 4px;
+    border-radius: 8px; 
+    border-color: $blue $blue $blue transparent;
+    border-style: solid;
+    border-width: 2px;
+    animation: halo-spin 1s infinite linear;
+  }
+}
+@keyframes halo-spin {
+  0%{transform: rotate(0deg)} 
+  100%{transform: rotate(360deg)} 
 }
 </style>
 
