@@ -1,6 +1,6 @@
 <template>
       <button class="halo-button"
-            :class="classes"><slot/></button>
+            :class="classes" :disabled="disabled"><slot/></button>
 </template>
 
 <script lang='ts'>
@@ -19,6 +19,10 @@ props: {
     level:{
       type:String,
       default:'normal'
+    },
+    disabled: {
+      type: Boolean,
+      default: false,
     }
 },
 setup(props) {
@@ -39,6 +43,7 @@ $color: #333;
 $blue: #40a9ff;
 $radius: 4px;
 $red: red;
+$grey: grey;
 .halo-button{
     box-sizing: border-box;
     height: $h;
@@ -140,8 +145,23 @@ $red: red;
         color: darken($red, 10%);
       }
     }
+    
   }
-
+  &.halo-theme-button {
+    &[disabled] {
+      cursor: not-allowed;
+      color: $grey;
+      &:hover {
+        border-color: $grey;
+      }
+    }
+  }
+  &.halo-theme-link, &.halo-theme-text {
+    &[disabled] {
+      cursor: not-allowed;
+      color: $grey;
+    }
+  }
 }
 </style>
 
