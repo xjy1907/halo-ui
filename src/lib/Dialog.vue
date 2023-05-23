@@ -3,10 +3,9 @@
   <div class="halo-dialog-overlay" @click="onClickOverlay"></div>
   <div class="halo-dialog-wrapper">
     <div class="halo-dialog">
-    <header>标题<span class="halo-dialog-close" @click="close"></span></header>
+    <header><slot name="title"/><span class="halo-dialog-close" @click="close"></span></header>
     <main>
-      <p>第一行字</p>
-      <p>第二行字</p>
+      <slot name="content"></slot>
     </main>
     <footer>
       <Button @click="ok">ok</Button>
