@@ -1,6 +1,7 @@
 <template>
   <div>Dialog 示例</div>
   <h1>示例1</h1>
+  <div style="position: relative; z-index: 1;">
   <Button @click="toggle">111</Button>
   <Dialog v-model:visible="isVisible" :closeOnClickOverlay="true" :ok="f1" :cancel="f2">
   <template v-slot:title>
@@ -16,6 +17,8 @@
   </template>
 
   </Dialog>
+</div>
+<div style="position: relative; z-index: 2; width: 300px; height: 300px; background: red;"></div>
 </template>
 
 <script lang="ts">

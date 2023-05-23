@@ -1,5 +1,6 @@
 <template>
   <template v-if="visible">
+    <Teleport to="body">
   <div class="halo-dialog-overlay" @click="onClickOverlay"></div>
   <div class="halo-dialog-wrapper">
     <div class="halo-dialog">
@@ -14,6 +15,7 @@
     
   </div>
   </div>
+</Teleport>
 </template>
 </template>
 
