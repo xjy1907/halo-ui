@@ -1,20 +1,21 @@
 <template>
-  <div class="halo-dialog-overlay"></div>
+  <template v-if="visible">
+  <div class="halo-dialog-overlay" @click="onClickOverlay"></div>
   <div class="halo-dialog-wrapper">
     <div class="halo-dialog">
-    <header>标题<span class="halo-dialog-close"></span></header>
+    <header>标题<span class="halo-dialog-close" @click="close"></span></header>
     <main>
       <p>第一行字</p>
       <p>第二行字</p>
     </main>
     <footer>
-      <Button>ok</Button>
-      <Button>cancel</Button>
+      <Button @click="ok">ok</Button>
+      <Button @click="cancel">cancel</Button>
     </footer>
     
   </div>
-  
   </div>
+</template>
 </template>
 
 <script lang='ts'>
@@ -22,6 +23,51 @@ import Button from './Button.vue'
 export default {
   components: {
     Button
+  },
+  
+  props: {
+    visible: {
+      type: Boolean,
+    },
+    closeOnClickOverlay: {
+      type: Boolean,
+      default: false
+    },
+    ok: {
+      type: Function,
+      default: () => {}
+    },
+    cancel: {
+      type: Function,
+      default: () => {}
+    }
+  },
+  emits:['update:visible'],
+  setup(props,context) {
+    const close = ()=>{ 
+      context.emit('update:visible',false)  
+    }
+    const onClickOverlay = ()=>{
+      if(props.closeOnClickOverlay)
+      {
+        close();
+      }
+    }
+    const ok = ()=>{
+      if(props.ok?.()){
+      close()
+    }
+    }
+    const cancel = ()=>{
+      props.cancel( )
+      close()
+    }
+    return {
+      close,
+      ok,
+      cancel,
+      onClickOverlay
+    }
   }
 }
 </script>
