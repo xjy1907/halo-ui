@@ -54,6 +54,7 @@ export default {
 }
 .banner {
     padding: 100px 0;
+    margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: center;
