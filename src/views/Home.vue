@@ -21,8 +21,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.home {
+    background: linear-gradient(90deg, rgb(90, 242, 222) 0%, rgba(0,232,255,1) 100%);
+
+}
 .banner {
-    background-color: lightgreen;
     padding: 100px 0;
     display: flex;
     align-items: center;
@@ -34,11 +37,12 @@ export default {
             margin: 0 8px;
             background-color: #fff;
             display: inline-block;
-            $h:28px;
-            height: $h;
-            line-height: $h;
+            $h:14px;
             border-radius: $h/2;
-            padding: 0 8px;
+            padding: 8px 14px;
+            &:hover {
+                text-decoration: none;
+            }
         }
     }
 }
