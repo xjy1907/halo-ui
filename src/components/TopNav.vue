@@ -1,6 +1,10 @@
 <template>
     <div class="top-nav">
-        <div class="logo">logo</div>
+        <div class="logo">
+            <svg class="icon" >
+    <use xlink:href="#icon-halo"></use>
+                </svg>
+        </div>
         <ul class="menu">
             <li>菜单一</li>
             <li>菜单二</li>
@@ -41,6 +45,10 @@ export default {
     >.logo {
         max-width: 6em;
         margin-right: auto;
+        >svg {
+            width: 32px;
+            height: 32px;
+        }
     }
 
     >.menu {

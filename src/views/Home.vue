@@ -1,5 +1,6 @@
 <template>
     <div class="home">
+        <div class="topNavAndBanner">
         <TopNav/>
       <div class="banner">
           <h1>Halo UI</h1>
@@ -9,6 +10,18 @@
               <router-link to="/doc">开始</router-link>
           </p>
       </div>
+    </div>
+    <div class="features">
+        <svg class="icon" >
+             <use xlink:href="#icon-Vue"></use>
+        </svg>
+        <svg class="icon" >
+             <use xlink:href="#icon-typescript"></use>
+        </svg>
+        <svg class="icon" >
+             <use xlink:href="#icon-sass"></use>
+        </svg>
+    </div>
     </div>
   </template>
 <script lang="ts">
@@ -21,7 +34,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.home {
+.topNavAndBanner {
     background: linear-gradient(90deg, rgb(90, 242, 222) 0%, rgba(0,232,255,1) 100%);
 
 }
@@ -46,6 +59,11 @@ export default {
         }
     }
 }
-
+.features {
+    >svg {
+        width: 64px;
+        height: 64px;
+    }
+}
 
 </style>
