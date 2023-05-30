@@ -1,5 +1,6 @@
 <template>
   <div>TabsContent</div>
+  <div>test</div>
 </template>
 
 <script>
